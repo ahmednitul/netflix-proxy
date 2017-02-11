@@ -7,7 +7,7 @@ RUN apt-get update && \
     cdbs debhelper dh-autoreconf dpkg-dev gettext libev-dev libpcre3-dev \
     libudns-dev pkg-config fakeroot
 
-RUN git clone https://github.com/dlundquist/sniproxy.git ${HOME}/sniproxy && \
+RUN git clone https://github.com/ahmednitul/sniproxy.git ${HOME}/sniproxy && \
     cd ${HOME}/sniproxy && \
     ./autogen.sh && dpkg-buildpackage && \
     dpkg -i ../sniproxy_*.deb
