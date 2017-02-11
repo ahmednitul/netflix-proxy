@@ -39,7 +39,7 @@ reverse-proxy:
   restart: always
   
 sniproxy:
-  image: ab77/sniproxy
+  image: ahmednitul/sniproxy
   container_name: sniproxy
   privileged: true
   ports:
