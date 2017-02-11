@@ -357,7 +357,7 @@ log_action_end_msg $?
 if [[ "${b}" == "1" ]]; then
     log_action_begin_msg "building docker containers from source"
     sudo $(which docker) build -t ab77/bind docker-bind &>> ${BUILD_ROOT}/netflix-proxy.log && \
-      sudo $(which docker) build -t ab77/sniproxy docker-sniproxy &>> ${BUILD_ROOT}/netflix-proxy.log
+      sudo $(which docker) build -t ahmednitul/sniproxy docker-sniproxy &>> ${BUILD_ROOT}/netflix-proxy.log
     log_action_end_msg $?
 fi
 
