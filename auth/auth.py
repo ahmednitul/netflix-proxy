@@ -233,8 +233,8 @@ def get_form(name='add'):
 
 def get_redirect_page():
     content = web.form.Form()
-    content.title = 'Redirect to Google'
-    content.redirect_url = 'http://google.com/'
+    content.title = 'Redirect to Nitul'
+    content.redirect_url = 'http://nitul.net/'
     return content
                 
 
