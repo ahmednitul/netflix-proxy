@@ -322,7 +322,7 @@ log_action_end_msg $?
 
 log_action_begin_msg "installing sudo nano php5-cli build-essential vnstat and nload"
 sudo apt-get -y update &>> ${BUILD_ROOT}/netflix-proxy.log && \
-  sudo apt-get -y install sudo nano php5-cli build-essential nload vnstat &>> ${BUILD_ROOT}/netflix-proxy.log && \
+  sudo apt-get -y install nano php5-cli build-essential nload vnstat &>> ${BUILD_ROOT}/netflix-proxy.log && \
 log_action_end_msg $?
 
 log_action_begin_msg "removing resolvconf ufw etc etc"
