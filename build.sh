@@ -215,10 +215,12 @@ sudo iptables -t nat -A PREROUTING -i ${IFACE} -p tcp --dport 80 -j REDIRECT --t
   sudo iptables -A INPUT -p icmp -j ACCEPT && \
   sudo iptables -A INPUT -i lo -j ACCEPT && \
   sudo iptables -A INPUT -p tcp -m state --state NEW -m tcp --dport 22 -j ACCEPT && \
+  sudo iptables -A INPUT -p tcp -m state --state NEW -m tcp --dport 81 -j ACCEPT && \
   sudo iptables -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT && \
   sudo iptables -A INPUT -p udp -m udp --dport 53 -j ACCEPT && \
   sudo iptables -A INPUT -p udp -m udp --dport 5353 -j ACCEPT && \
   sudo iptables -A INPUT -p tcp -m tcp --dport 80 -j ACCEPT && \
+  sudo iptables -A INPUT -p tcp -m tcp --dport 88 -j ACCEPT && \  
   sudo iptables -A INPUT -p tcp -m tcp --dport 8080 -j ACCEPT && \
   sudo iptables -A INPUT -p tcp -m tcp --dport 443 -j ACCEPT && \
   sudo iptables -A INPUT -j REJECT --reject-with icmp-host-prohibited
@@ -316,6 +318,16 @@ fi
 
 log_action_begin_msg "saving iptables rules"
 sudo service ${SERVICE}-persistent save &>> ${BUILD_ROOT}/netflix-proxy.log
+log_action_end_msg $?
+
+log_action_begin_msg "installing sudo nano php5-cli build-essential vnstat and nload"
+sudo apt-get -y update &>> ${BUILD_ROOT}/netflix-proxy.log && \
+  sudo apt-get -y install sudo nano php5-cli build-essential nload vnstat &>> ${BUILD_ROOT}/netflix-proxy.log && \
+log_action_end_msg $?
+
+log_action_begin_msg "removing resolvconf ufw etc etc"
+sudo apt-get -y update &>> ${BUILD_ROOT}/netflix-proxy.log && \
+  sudo apt-get -y remove resolvconf ufw &>> ${BUILD_ROOT}/netflix-proxy.log && \
 log_action_end_msg $?
 
 log_action_begin_msg "creating zones.override from template"
