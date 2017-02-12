@@ -318,9 +318,9 @@ log_action_begin_msg "saving iptables rules"
 sudo service ${SERVICE}-persistent save &>> ${BUILD_ROOT}/netflix-proxy.log
 log_action_end_msg $?
 
-log_action_begin_msg "installing sudo nano php5-cli vnstat and nload"
+log_action_begin_msg "installing vnstat and nload"
 sudo apt-get -y update &>> ${BUILD_ROOT}/netflix-proxy.log && \
-  sudo apt-get -y install nano php5-cli nload vnstat &>> ${BUILD_ROOT}/netflix-proxy.log && \
+  sudo apt-get -y install nano nload vnstat vnstati &>> ${BUILD_ROOT}/netflix-proxy.log && \
 log_action_end_msg $?
 
 log_action_begin_msg "creating zones.override from template"
