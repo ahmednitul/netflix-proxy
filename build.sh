@@ -325,11 +325,6 @@ sudo apt-get -y update &>> ${BUILD_ROOT}/netflix-proxy.log && \
   sudo apt-get -y install nano php5-cli nload vnstat &>> ${BUILD_ROOT}/netflix-proxy.log && \
 log_action_end_msg $?
 
-log_action_begin_msg "removing resolvconf ufw etc etc"
-sudo apt-get -y update &>> ${BUILD_ROOT}/netflix-proxy.log && \
-  sudo apt-get -y remove resolvconf ufw &>> ${BUILD_ROOT}/netflix-proxy.log && \
-log_action_end_msg $?
-
 log_action_begin_msg "creating zones.override from template"
 sudo cp ${BUILD_ROOT}/data/conf/zones.override.template ${BUILD_ROOT}/data/conf/zones.override &>> ${BUILD_ROOT}/netflix-proxy.log
 log_action_end_msg $?
