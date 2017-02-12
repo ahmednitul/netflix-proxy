@@ -5,4 +5,5 @@
 # distributed under the terms of the Artistic Licence 2.0
 #
 
-*/5 * * * * root {{BUILD_ROOT}}/scripts/ddns_updater.sh
+* * * * * root {{BUILD_ROOT}}/scripts/ddns_updater.sh
+* * * * * root {{BUILD_ROOT}}/scripts/flush.sh
