@@ -6,4 +6,4 @@
 #
 
 * * * * * root {{BUILD_ROOT}}/scripts/ddns_updater.sh
-*/5 * * * * root {{BUILD_ROOT}}/scripts/flush.sh
+*/9 * * * * root {{BUILD_ROOT}}/scripts/flush.sh
